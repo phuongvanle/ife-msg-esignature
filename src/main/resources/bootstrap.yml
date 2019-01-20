@@ -1,0 +1,13 @@
+server:
+  port: 0
+  ssl:
+    enabled: false
+    key-store: classpath:ssl_config/print_keystore
+    key-alias: esignatures
+    key-store-password: changeit
+    key-password: changeit
+  servlet:
+    application-display-name: Microservice Group - Esignature Management
+spring:
+  application:
+    name: esignature-management

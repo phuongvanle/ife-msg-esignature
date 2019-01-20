@@ -1,0 +1,48 @@
+multipart:
+  enabled: true
+spring:
+  config:
+    location: classpath:/config/
+  jackson:
+    date-format: "yyyy-MM-dd'T'HH:mm:ssZ"      
+    time-zone: "Asia/Saigon"
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+        
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+                  
+# Micro Service Group IDs      
+microservices:
+  gatewayServiceId: api-management
+
+security:
+  authservice:
+    jwt: true
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:9999/ife-infra-oauth2/user
+      additionalUri: http://localhost:9999/ife-infra-oauth2/oauth/{token}/get/additionalInfo
+  jwt:
+    token:
+      secret-key: cIZCtAfSSk9qsmWgtbpXpzoAZaZJa0kYRIWnNyhn
+      expire-length: 86400000  
+      
+javamelody:
+  advisor-auto-proxy-creator-enabled: false
+  scheduled-monitoring-enabled: true
+  
+executor: 
+  thread-name-prefix: print-task-
+  core-pool-size: 5
+  max-pool-size: 5
+  queue-capacity: 10
+  allow-core-thread-time-out: true
+  
+esignature:
+  text-predifine: AuthorizedSignatory
